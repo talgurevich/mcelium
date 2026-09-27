@@ -17,7 +17,7 @@ Waitlist landing page for Mcelium.
 ## Export signups
 
 ```sh
-curl -H "Authorization: Bearer $ADMIN_TOKEN" https://mcelium.dev/api/waitlist > waitlist.csv
+curl -H "Authorization: Bearer $ADMIN_TOKEN" https://www.mcelium.dev/api/waitlist > waitlist.csv
 ```
 
 The `X-Total-Count` response header holds the number of signups.

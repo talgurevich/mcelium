@@ -2,7 +2,7 @@ import { timingSafeEqual } from 'node:crypto';
 import { db } from './_db.js';
 
 // Export signups as CSV:
-//   curl -H "Authorization: Bearer $ADMIN_TOKEN" https://mcelium.dev/api/waitlist > waitlist.csv
+//   curl -H "Authorization: Bearer $ADMIN_TOKEN" https://www.mcelium.dev/api/waitlist > waitlist.csv
 export default async function handler(req, res) {
   const token = process.env.ADMIN_TOKEN;
   const given = (req.headers.authorization || '').replace(/^Bearer /, '');
