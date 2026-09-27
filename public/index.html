@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mcelium: code in parallel without the push and pull</title>
+<meta name="description" content="Mcelium links your team's Claude Code sessions. When your agent changes something another agent depends on, that agent hears about it mid-task and adapts. Join the waitlist.">
+<link rel="canonical" href="https://mcelium.dev/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mcelium.dev/">
+<meta property="og:title" content="Mcelium: code in parallel without the push and pull">
+<meta property="og:description" content="Your team's Claude Code agents tell each other what changed, so nobody has to stop and sync. Join the waitlist.">
+<meta property="og:image" content="https://mcelium.dev/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#E8EBE0">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header class="nav wrap">
+  <a href="/" class="brand"><img src="/assets/logo.png" alt="Mcelium" width="237" height="44"></a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#how">How it works</a>
+    <a href="#join" class="pill">Join the waitlist</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div class="hero-top">
+    <div class="hero-copy">
+      <h1>Code in parallel without the push and pull.</h1>
+      <p class="lede">Mcelium links your team's Claude Code sessions. When your agent changes something another agent depends on, that agent hears about it mid-task and adapts, before anyone sees a broken build.</p>
+      <form class="signup" data-source="hero" novalidate>
+        <label for="email-hero">Work email</label>
+        <div class="row">
+          <input id="email-hero" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+          <input class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit">Join the waitlist</button>
+        </div>
+        <p class="hint">For small teams building with Claude Code. One email when early access opens.</p>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <img class="hero-mark" src="/assets/symbol.png" alt="" width="340" height="242">
+  </div>
+
+  <div class="demo">
+    <figure class="term">
+      <figcaption class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Dana  ~/shop-app  claude</figcaption>
+      <div class="tbody">
+<div class="ln"><span class="prompt">&gt; rename getUser to fetchUser and make it async</span></div>
+<div class="ln"> </div>
+<div class="ln"><span class="ok">⏺</span> <b>Update</b>(src/api/users.ts)</div>
+<div class="ln dim">  ⎿  Updated src/api/users.ts with 2 additions and 2 removals</div>
+<div class="ln del">      12 - export function getUser(id: string): User {</div>
+<div class="ln add">      12 + export async function fetchUser(id: string) {</div>
+<div class="ln del">      13 -   return db.users.find(id)</div>
+<div class="ln add">      13 +   return await db.users.find(id)</div>
+<div class="ln"> </div>
+<div class="ln"><span class="spore">⏺</span> <b>PostToolUse hook</b> <span class="spore">mcelium</span></div>
+<div class="ln"><span class="dim">  ⎿  </span>Shared: <span class="spore">users.getUser</span> renamed to <span class="spore">fetchUser</span>, now async</div>
+<div class="ln dim">     Sent to 1 session that uses it: Omer</div>
+<div class="ln"> </div>
+<div class="ln">⏺ Done. getUser is now fetchUser and returns a Promise.</div>
+      </div>
+      <div class="tinput">&gt; <span class="cursor"></span></div>
+      <div class="tfoot">⏵⏵ accept edits on</div>
+    </figure>
+
+    <svg class="thread" viewBox="0 0 96 508" fill="none" aria-hidden="true">
+      <path class="main" d="M0 291 C40 291 44 181 96 181"/>
+      <path d="M22 280 C30 250 26 232 38 214" opacity=".55"/>
+      <path d="M30 262 C44 270 50 300 64 318" opacity=".45"/>
+      <path d="M58 206 C66 196 70 170 82 160" opacity=".45"/>
+      <path d="M48 236 C52 250 62 256 70 276" opacity=".35"/>
+      <circle cx="0" cy="291" r="4" class="node"/>
+      <circle cx="96" cy="181" r="4" class="node"/>
+    </svg>
+    <svg class="thread-v" viewBox="0 0 60 64" fill="none" aria-hidden="true">
+      <path class="main" d="M20 0 C20 30 40 34 40 64"/>
+      <path d="M26 22 C14 30 12 40 6 46" opacity=".45"/>
+      <path d="M34 38 C46 34 50 24 56 20" opacity=".45"/>
+    </svg>
+
+    <figure class="term">
+      <figcaption class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Omer  ~/shop-app  claude</figcaption>
+      <div class="tbody">
+<div class="ln"><span class="prompt">&gt; add a profile page that lists the user's orders</span></div>
+<div class="ln"> </div>
+<div class="ln"><span class="ok">⏺</span> <b>Write</b>(src/pages/Profile.tsx)</div>
+<div class="ln dim">  ⎿  Wrote 48 lines to src/pages/Profile.tsx</div>
+<div class="ln"> </div>
+<div class="ln"><span class="spore">⏺ mcelium</span>  1 change from Dana affects this task</div>
+<div class="ln"><span class="dim">  ⎿  </span><span class="spore">users.getUser</span> is now <span class="spore">users.fetchUser</span> (async)</div>
+<div class="ln dim">     You call it in Profile.tsx:14 and OrderList.tsx:31</div>
+<div class="ln"> </div>
+<div class="ln">⏺ Dana renamed getUser. Updating my calls before I continue.</div>
+<div class="ln"> </div>
+<div class="ln"><span class="ok">⏺</span> <b>Update</b>(src/pages/Profile.tsx)</div>
+<div class="ln del">      14 -   const user = getUser(id)</div>
+<div class="ln add">      14 +   const user = await fetchUser(id)</div>
+      </div>
+      <div class="tinput"><span class="clay">✻</span> Updating OrderList.tsx… <span class="dim">(esc to interrupt)</span></div>
+      <div class="tfoot">⏵⏵ accept edits on</div>
+    </figure>
+  </div>
+  <p class="caption">Dana's agent renames a function. Omer's agent is mid-task, gets the change, and fixes its own calls. Neither of them pulled.</p>
+</section>
+
+<section id="how" class="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><span class="n">1</span><h3>Add the hook</h3><p>One command installs a Claude Code hook and connects your session to your team's Mcelium server.</p></li>
+      <li><span class="n">2</span><h3>Mcelium maps your work</h3><p>It reads each edit as code, not text: which functions, types and endpoints you changed, and which ones you rely on.</p></li>
+      <li><span class="n">3</span><h3>Only relevant changes arrive</h3><p>Your agent hears about a change only when it touches something you depend on. Everything else stays quiet.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="split wrap">
+  <div class="split-copy">
+    <h2>When two changes really collide, it stops and asks.</h2>
+    <p>Mcelium never merges code silently. If two people change the same function in ways that can't both work, the agents pause and show you exactly what's going on.</p>
+  </div>
+  <figure class="term">
+    <figcaption class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Omer  ~/shop-app  claude</figcaption>
+    <div class="tbody pad">
+<div class="ln"><span class="prompt">&gt; drop the id param from fetchUser, read it from the session</span></div>
+<div class="ln"> </div>
+<div class="ln"><span class="spore">⏺ mcelium</span>  Noa is changing fetchUser too</div>
+<div class="ln"><span class="dim">  ⎿  </span>Noa added a second parameter, <span class="spore">options</span>.</div>
+<div class="ln">     Your change removes <span class="spore">id</span>. Both can't land as written.</div>
+<div class="ln"> </div>
+<div class="ln">⏺ I've paused before editing. How do you want to go on?</div>
+<div class="ln"> </div>
+<div class="ln spore">  ❯ 1. Message Noa first</div>
+<div class="ln">    2. Keep Noa's signature and adapt my change</div>
+<div class="ln">    3. Continue anyway</div>
+    </div>
+  </figure>
+</section>
+
+<section class="split split-rev wrap">
+  <figure class="term">
+    <figcaption class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Dana  ~/shop-app  claude</figcaption>
+    <div class="tbody pad">
+<div class="ln"><span class="prompt">&gt; /mcelium status</span></div>
+<div class="ln"> </div>
+<div class="ln"><span class="spore">⏺ mcelium</span>  shop-app, 3 sessions live</div>
+<div class="ln"> </div>
+<div class="ln"><b>  Dana </b> <span class="dim">(you)</span>  src/api/users.ts, src/api/orders.ts</div>
+<div class="ln"><b>  Omer </b>        src/pages/Profile.tsx   <span class="spore">uses fetchUser</span></div>
+<div class="ln"><b>  Noa  </b>        src/api/users.ts        <span class="clay">same file as you</span></div>
+<div class="ln"> </div>
+<div class="ln dim">  Changes you shared today: 6. Delivered to others: 2.</div>
+    </div>
+  </figure>
+  <div class="split-copy">
+    <h2>See who's touching what.</h2>
+    <p>Type /mcelium status in any session to see what each teammate's agent is working on and where your work overlaps. Git stays underneath as the safety net.</p>
+  </div>
+</section>
+</main>
+
+<footer id="join" class="join">
+  <div class="wrap">
+    <h2>Be one of the first teams on Mcelium.</h2>
+    <p class="join-lede">We're starting with Claude Code and a handful of teams. Leave your email and we'll reach out when there's a spot.</p>
+    <form class="signup dark" data-source="footer" novalidate>
+      <label for="email-footer">Work email</label>
+      <div class="row">
+        <input id="email-footer" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+        <input class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit">Join the waitlist</button>
+      </div>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
+    <div class="legal">
+      <img src="/assets/logo-light.png" alt="Mcelium" width="183" height="34">
+      <span>An independent project, not affiliated with Anthropic.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/app.js" defer></script>
+</body>
+</html>
