@@ -34,10 +34,13 @@ h1, h2, h3, p { margin: 0; }
 /* hero */
 .hero { padding-top: 64px; padding-bottom: 120px; }
 .hero-top { display: flex; align-items: center; justify-content: space-between; gap: 64px; }
-.hero-copy { max-width: 860px; }
+.hero-copy { position: relative; z-index: 2; max-width: 860px; }
 h1 { font-family: var(--display); font-weight: 700; font-size: clamp(44px, 6vw, 80px); line-height: .98; letter-spacing: -.035em; }
 .lede { margin-top: 28px; max-width: 620px; font-size: clamp(18px, 1.6vw, 21px); color: var(--loam-2); }
-.hero-mark { width: 340px; flex-shrink: 0; }
+.hero-mark-wrap { position: relative; flex-shrink: 0; }
+.hero-mark { position: relative; z-index: 1; width: 340px; transition: transform .6s cubic-bezier(.3, .7, .2, 1); }
+.hero-mark-wrap.alive .hero-mark { transform: scale(1.03); }
+.hero-mark-wrap canvas { position: absolute; z-index: 0; top: -150px; right: -110px; bottom: -170px; left: -70px; width: calc(100% + 180px); height: calc(100% + 320px); pointer-events: none; }
 
 /* signup */
 .signup { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; }
