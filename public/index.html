@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mcelium: code in parallel without the push and pull</title>
-<meta name="description" content="Mcelium links your team's Claude Code sessions. When your agent changes something another agent depends on, that agent hears about it mid-task and adapts. Join the waitlist.">
+<title>Mcelium: shared context for parallel Claude sessions</title>
+<meta name="description" content="Mcelium links your team's Claude sessions. When one session makes a decision, learns something, or changes what another depends on, the sessions that need it hear about it mid-task. Join the waitlist.">
 <link rel="canonical" href="https://mcelium.dev/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mcelium.dev/">
-<meta property="og:title" content="Mcelium: code in parallel without the push and pull">
-<meta property="og:description" content="Your team's Claude Code agents tell each other what changed, so nobody has to stop and sync. Join the waitlist.">
+<meta property="og:title" content="Mcelium: shared context for parallel Claude sessions">
+<meta property="og:description" content="What one Claude session learns, the others know. Work in parallel without stopping to sync. Join the waitlist.">
 <meta property="og:image" content="https://mcelium.dev/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#E8EBE0">
@@ -26,7 +26,9 @@
 <header class="nav wrap">
   <a href="/" class="brand"><img src="/assets/logo.png" alt="Mcelium" width="237" height="44"></a>
   <nav class="nav-links" aria-label="Main">
+    <a href="#shared">What's shared</a>
     <a href="#how">How it works</a>
+    <a href="#code">Code</a>
     <a href="#join" class="pill">Join the waitlist</a>
   </nav>
 </header>
@@ -35,8 +37,8 @@
 <section class="hero wrap">
   <div class="hero-top">
     <div class="hero-copy">
-      <h1>Code in parallel without the push and pull.</h1>
-      <p class="lede">Mcelium links your team's Claude Code sessions. When your agent changes something another agent depends on, that agent hears about it mid-task and adapts, before anyone sees a broken build.</p>
+      <h1>What one session learns, the others know.</h1>
+      <p class="lede">Mcelium links your team's Claude sessions. When one session makes a decision, finds something out, or changes something others rely on, the sessions that need it hear about it mid-task. Nobody has to stop and sync.</p>
       <form class="signup" data-source="hero" novalidate>
         <label for="email-hero">Work email</label>
         <div class="row">
@@ -44,7 +46,7 @@
           <input class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button type="submit">Join the waitlist</button>
         </div>
-        <p class="hint">For small teams building with Claude Code. One email when early access opens.</p>
+        <p class="hint">For small teams working in parallel with Claude. One email when early access opens.</p>
         <p class="status" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -54,6 +56,105 @@
     </div>
   </div>
 
+  <div class="demo">
+    <figure class="chat">
+      <figcaption class="cbar"><span><b>Dana</b>  Pricing spec</span><span class="cmodel">Claude</span></figcaption>
+      <div class="cbody">
+        <p class="msg you">We're dropping the free tier. Update the spec: Starter becomes $9 a month with a 14-day trial.</p>
+        <p class="msg claude"><span class="glyph">✻</span>Done. The free tier is out of the spec, and Starter is now $9 a month with a 14-day trial.</p>
+        <div class="note">
+          <p class="tag">mcelium  shared a decision</p>
+          <p>Free tier removed. Starter is $9 a month, 14-day trial.</p>
+          <p class="dim">Sent to 1 session that relies on pricing: Omer</p>
+        </div>
+      </div>
+      <div class="ccompose">Reply to Claude…</div>
+    </figure>
+
+    <svg class="thread" viewBox="0 0 96 508" fill="none" aria-hidden="true">
+      <path class="main" d="M0 251 C40 251 44 171 96 171"/>
+      <path d="M22 242 C30 218 26 204 38 190" opacity=".55"/>
+      <path d="M30 228 C44 236 50 262 64 278" opacity=".45"/>
+      <path d="M58 190 C66 182 70 160 82 150" opacity=".45"/>
+      <path d="M48 212 C52 224 62 230 70 248" opacity=".35"/>
+      <circle cx="0" cy="251" r="4" class="node"/>
+      <circle cx="96" cy="171" r="4" class="node"/>
+    </svg>
+    <svg class="thread-v" viewBox="0 0 60 64" fill="none" aria-hidden="true">
+      <path class="main" d="M20 0 C20 30 40 34 40 64"/>
+      <path d="M26 22 C14 30 12 40 6 46" opacity=".45"/>
+      <path d="M34 38 C46 34 50 24 56 20" opacity=".45"/>
+    </svg>
+
+    <figure class="chat">
+      <figcaption class="cbar"><span><b>Omer</b>  Launch email</span><span class="cmodel">Claude</span></figcaption>
+      <div class="cbody">
+        <p class="msg you">Draft the launch email for Thursday.</p>
+        <div class="note">
+          <p class="tag">mcelium  1 decision from Dana affects this draft</p>
+          <p>The free tier is gone. Starter is $9 a month with a 14-day trial.</p>
+          <p class="dim">Your draft offers a free plan in paragraph 2.</p>
+        </div>
+        <p class="msg claude"><span class="glyph">✻</span>Dana dropped the free tier, so I've rewritten paragraph 2 before going on:</p>
+        <p class="edit"><del>Start on the free plan, no card needed.</del><br><ins>Try Starter free for 14 days, then $9 a month.</ins></p>
+      </div>
+      <div class="ccompose"><span class="clay">✻</span> Writing the rest of the email…</div>
+    </figure>
+  </div>
+  <p class="caption">Dana's session settles a pricing decision. Omer's session is mid-draft, gets the decision, and fixes the email. Nobody sent a Slack message.</p>
+</section>
+
+<section id="shared" class="shared wrap">
+  <h2>Share context, not just code.</h2>
+  <p class="section-lede">When several people work with Claude at once, each session builds up context the others never see. Mcelium passes along the parts that matter.</p>
+  <ul class="cards">
+    <li><h3>Decisions</h3><p>What the team settled, so no session keeps working from the old plan.</p><p class="eg">"We're going with Postgres." "The free tier is gone."</p></li>
+    <li><h3>Findings</h3><p>Facts one session dug up that another would otherwise spend an hour rediscovering.</p><p class="eg">"The partner API caps at 100 requests a minute."</p></li>
+    <li><h3>Changes</h3><p>Edits to things others build on: a spec, a schema, a function, a doc.</p><p class="eg">"The onboarding spec now has 3 steps, not 5."</p></li>
+    <li><h3>Who's on what</h3><p>What each teammate's session is working on right now, so two people don't do the same job.</p><p class="eg">"Noa's session is already rewriting the FAQ."</p></li>
+  </ul>
+</section>
+
+<section id="how" class="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><span class="n">1</span><h3>Connect your sessions</h3><p>Each teammate links their Claude session to your team's Mcelium space. It takes one step.</p></li>
+      <li><span class="n">2</span><h3>Mcelium keeps track</h3><p>It notes what each session decides, learns and changes, and what each one relies on to do its work.</p></li>
+      <li><span class="n">3</span><h3>Only relevant context arrives</h3><p>A session hears about something only when it affects the task in front of it. Everything else stays quiet.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="split solo wrap">
+  <div class="split-copy">
+    <h2>When two sessions disagree, it stops and asks.</h2>
+    <p>Mcelium never quietly overrides a decision. If two sessions head in directions that can't both be true, Claude pauses and shows you both sides.</p>
+  </div>
+  <figure class="chat">
+    <figcaption class="cbar"><span><b>Noa</b>  Pricing FAQ</span><span class="cmodel">Claude</span></figcaption>
+    <div class="cbody">
+      <p class="msg you">Add an FAQ entry saying Starter includes 3 seats.</p>
+      <div class="note">
+        <p class="tag">mcelium  conflicts with a decision from Dana</p>
+        <p>Dana's spec says Starter includes 1 seat.</p>
+        <p class="dim">Both can't be true as written.</p>
+      </div>
+      <p class="msg claude"><span class="glyph">✻</span>I've paused before writing this. How do you want to go on?</p>
+      <ol class="choices">
+        <li class="on">Ask Dana first</li>
+        <li>Follow Dana's spec (1 seat)</li>
+        <li>Write it with 3 seats anyway</li>
+      </ol>
+    </div>
+  </figure>
+</section>
+
+<section id="code" class="code">
+  <div class="wrap">
+    <p class="eyebrow">Code</p>
+    <h2>For code: Git without the push and pull.</h2>
+    <p class="section-lede">In Claude Code, Mcelium reads each edit as code, not text: which functions, types and endpoints you changed, and which ones you rely on. When your agent changes something another agent depends on, that agent adapts mid-task, before anyone sees a broken build.</p>
   <div class="demo">
     <figure class="term">
       <figcaption class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Dana  ~/shop-app  claude</figcaption>
@@ -114,23 +215,11 @@
       <div class="tfoot">⏵⏵ accept edits on</div>
     </figure>
   </div>
-  <p class="caption">Dana's agent renames a function. Omer's agent is mid-task, gets the change, and fixes its own calls. Neither of them pulled.</p>
-</section>
-
-<section id="how" class="how">
-  <div class="wrap">
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li><span class="n">1</span><h3>Add the hook</h3><p>One command installs a Claude Code hook and connects your session to your team's Mcelium server.</p></li>
-      <li><span class="n">2</span><h3>Mcelium maps your work</h3><p>It reads each edit as code, not text: which functions, types and endpoints you changed, and which ones you rely on.</p></li>
-      <li><span class="n">3</span><h3>Only relevant changes arrive</h3><p>Your agent hears about a change only when it touches something you depend on. Everything else stays quiet.</p></li>
-    </ol>
+    <p class="caption">Dana's agent renames a function. Omer's agent is mid-task, gets the change, and fixes its own calls. Neither of them pulled.</p>
   </div>
-</section>
-
 <section class="split wrap">
   <div class="split-copy">
-    <h2>When two changes really collide, it stops and asks.</h2>
+    <h2>When two code changes collide, it asks.</h2>
     <p>Mcelium never merges code silently. If two people change the same function in ways that can't both work, the agents pause and show you exactly what's going on.</p>
   </div>
   <figure class="term">
@@ -171,12 +260,13 @@
     <p>Type /mcelium status in any session to see what each teammate's agent is working on and where your work overlaps. Git stays underneath as the safety net.</p>
   </div>
 </section>
+</section>
 </main>
 
 <footer id="join" class="join">
   <div class="wrap">
     <h2>Be one of the first teams on Mcelium.</h2>
-    <p class="join-lede">We're starting with Claude Code and a handful of teams. Leave your email and we'll reach out when there's a spot.</p>
+    <p class="join-lede">We're starting with a handful of teams working in parallel with Claude. Leave your email and we'll reach out when there's a spot.</p>
     <form class="signup dark" data-source="footer" novalidate>
       <label for="email-footer">Work email</label>
       <div class="row">
